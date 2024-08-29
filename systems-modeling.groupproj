@@ -9,7 +9,7 @@
         <Projects Include="lab2\lab2.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="lab3\lab3.cbproj">
+        <Projects Include="lab3\var17\lab3var17.cbproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -38,23 +38,23 @@
     <Target Name="lab2:Make">
         <MSBuild Projects="lab2\lab2.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="lab3">
-        <MSBuild Projects="lab3\lab3.cbproj"/>
+    <Target Name="lab3var17">
+        <MSBuild Projects="lab3\var17\lab3var17.cbproj"/>
     </Target>
-    <Target Name="lab3:Clean">
-        <MSBuild Projects="lab3\lab3.cbproj" Targets="Clean"/>
+    <Target Name="lab3var17:Clean">
+        <MSBuild Projects="lab3\var17\lab3var17.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="lab3:Make">
-        <MSBuild Projects="lab3\lab3.cbproj" Targets="Make"/>
+    <Target Name="lab3var17:Make">
+        <MSBuild Projects="lab3\var17\lab3var17.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="lab1;lab2;lab3"/>
+        <CallTarget Targets="lab1;lab2;lab3var17"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="lab1:Clean;lab2:Clean;lab3:Clean"/>
+        <CallTarget Targets="lab1:Clean;lab2:Clean;lab3var17:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="lab1:Make;lab2:Make;lab3:Make"/>
+        <CallTarget Targets="lab1:Make;lab2:Make;lab3var17:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
