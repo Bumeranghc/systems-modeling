@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------
+ï»¿//---------------------------------------------------------------------------
 
 #include <vcl.h>
 #pragma hdrstop
@@ -22,27 +22,27 @@ float fEfficient (int iV, int iA, int iB, int iZ, int iPeriod, TStringGrid *sgMo
  {
   fOldcoeff=fCoeffReal;
   sgModel->Cells[5][t+1]=iS;
-  iBt=abs(iVnow-iB+random(2*iB)); //îïðåäåëÿåì òåêóùóþ ðåàëüíóþ ïðîèçâîäèòåëüíîñòü
+  iBt=abs(iVnow-iB+random(2*iB)); //Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÑÐµÐ¼ Ñ‚ÐµÐºÑƒÑ‰ÑƒÑŽ Ñ€ÐµÐ°Ð»ÑŒÐ½ÑƒÑŽ Ð¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ
   if (t>0&&iVnow==0) iBt=0;
-  iP=abs(iV-iA+random(2*iA)); //îïðåäåëÿåì ïîòðåáíîñòü
-  iNastr=iZ*abs(iVnow-iVpast); //îïðåäåëÿåì ñòîèìîñòü ïåðåíàñòðîéêè
+  iP=abs(iV-iA+random(2*iA)); //Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÑÐµÐ¼ Ð¿Ð¾Ñ‚Ñ€ÐµÐ±Ð½Ð¾ÑÑ‚ÑŒ
+  iNastr=iZ*abs(iVnow-iVpast); //Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÑÐµÐ¼ ÑÑ‚Ð¾Ð¸Ð¼Ð¾ÑÑ‚ÑŒ Ð¿ÐµÑ€ÐµÐ½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸
   if (t>0)
   {
    if ((iS-iP)<0)
    {
-    iShtraf=5*iZ*abs(iS-iP);//øòðàô çà íåäîïîñòàâêó
-    fCost=1.5*iZ*iS; //îïðåäåëåíèå öåíû çà ÷àñòü ïîñòàâëåííîé ïðîäóêöèè
-    fCoeffReal=fCoeffReal+1.5*iZ*iS-iShtraf-iZapas-iNastr; //îïðåäåëåíèå âûðó÷êè
+    iShtraf=5*iZ*abs(iS-iP);//ÑˆÑ‚Ñ€Ð°Ñ„ Ð·Ð° Ð½ÐµÐ´Ð¾Ð¿Ð¾ÑÑ‚Ð°Ð²ÐºÑƒ
+    fCost=1.5*iZ*iS; //Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ñ†ÐµÐ½Ñ‹ Ð·Ð° Ñ‡Ð°ÑÑ‚ÑŒ Ð¿Ð¾ÑÑ‚Ð°Ð²Ð»ÐµÐ½Ð½Ð¾Ð¹ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ†Ð¸Ð¸
+    fCoeffReal=fCoeffReal+1.5*iZ*iS-iShtraf-iZapas-iNastr; //Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð²Ñ‹Ñ€ÑƒÑ‡ÐºÐ¸
     iS=0;
    }
    else
    {
     iS=iS-iP;
-    iShtraf=0; //âñÿ òðåáóåìàÿ ïðîäóêöèÿ ïîñòàâëåíà, øòðàôà íåò
-    fCost=1.5*iZ*iP; //ñòîèìîñòü ïîñòàâëÿåìîé ïðîäóêöèè
-    fCoeffReal=fCoeffReal+1.5*iZ*iP-iZapas-iNastr;  //îïðåäåëåíèå âûðó÷êè
+    iShtraf=0; //Ð²ÑÑ Ñ‚Ñ€ÐµÐ±ÑƒÐµÐ¼Ð°Ñ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ†Ð¸Ñ Ð¿Ð¾ÑÑ‚Ð°Ð²Ð»ÐµÐ½Ð°, ÑˆÑ‚Ñ€Ð°Ñ„Ð° Ð½ÐµÑ‚
+    fCost=1.5*iZ*iP; //ÑÑ‚Ð¾Ð¸Ð¼Ð¾ÑÑ‚ÑŒ Ð¿Ð¾ÑÑ‚Ð°Ð²Ð»ÑÐµÐ¼Ð¾Ð¹ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ†Ð¸Ð¸
+    fCoeffReal=fCoeffReal+1.5*iZ*iP-iZapas-iNastr;  //Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð²Ñ‹Ñ€ÑƒÑ‡ÐºÐ¸
    }
-   fCoeffAll=fCoeffAll+1.5*iZ*iP; //îïðåäåëåíèå ìàêñèìàëüíîé âûðó÷êè
+   fCoeffAll=fCoeffAll+1.5*iZ*iP; //Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ð¹ Ð²Ñ‹Ñ€ÑƒÑ‡ÐºÐ¸
   }
   iVpast=iVnow;
   sgModel->Cells[0][t+1]=iVnow;
@@ -53,7 +53,7 @@ float fEfficient (int iV, int iA, int iB, int iZ, int iPeriod, TStringGrid *sgMo
   sgModel->Cells[6][t+1]=iShtraf;
   sgModel->Cells[7][t+1]=fCost;
   sgModel->Cells[8][t+1]=fCoeffReal-fOldcoeff;
-  iZapas=4*iZ*iS; //îïðåäåëÿåì ñòîèìîñòü õðàíåíèÿ çàïàñîâ
+  iZapas=4*iZ*iS; //Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÑÐµÐ¼ ÑÑ‚Ð¾Ð¸Ð¼Ð¾ÑÑ‚ÑŒ Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ñ Ð·Ð°Ð¿Ð°ÑÐ¾Ð²
   if (t>0)
   {
    if (bDay==true&&(fCoeffReal/fCoeffAll)>1) iVnow=(iVnow-1-iS);
@@ -64,9 +64,9 @@ float fEfficient (int iV, int iA, int iB, int iZ, int iPeriod, TStringGrid *sgMo
    if (bYear==true&&((t+1)%240==0)&&(fCoeffReal/fCoeffAll)<1) iVnow=(iVnow+1-iS);
    if (iVnow<0) iVnow=0;
   }//if (bYear==true&&((t+1)%240==0)) iVnow=abs(iV-iB+random(2*iB));
-  iS=iS+iBt; //îïðåäåëÿåì òåêóùèé çàïàñ ïðîäóêöèè
+  iS=iS+iBt; //Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÑÐµÐ¼ Ñ‚ÐµÐºÑƒÑ‰Ð¸Ð¹ Ð·Ð°Ð¿Ð°Ñ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ†Ð¸Ð¸
  }
- sgModel->Cells[0][iPeriod+1]="Èòîãî:";
+ sgModel->Cells[0][iPeriod+1]="Ð˜Ñ‚Ð¾Ð³Ð¾:";
  sgModel->Cells[8][iPeriod+1]=fCoeffReal;
  return fCoeffReal/fCoeffAll;
 }
@@ -89,30 +89,30 @@ void __fastcall TfMain::bProcessClick(TObject *Sender)
  {
   tsModel=new TTabSheet(fMain);
   tsModel->PageControl=pcModel;
-  tsModel->Caption=AnsiString(i+1)+" ìîäåëü";
+  tsModel->Caption=AnsiString(i+1)+" Ð¼Ð¾Ð´ÐµÐ»ÑŒ";
   sgModel=new TStringGrid(fMain);
   sgModel->Parent=tsModel;
   sgModel->Align=alClient;
   sgModel->FixedCols=0;
   sgModel->ColCount=9;
   sgModel->RowCount=ePeriod->Text.ToIntDef(240)+2;
-  sgModel->Cells[0][0]="Ïëàí";
-  sgModel->Cells[1][0]="Ðåàëüíî";
-  sgModel->Cells[2][0]="Ïîòðåáíîñòü";
-  sgModel->Cells[3][0]="Öåíà õðàíåíèÿ";
-  sgModel->Cells[4][0]="Öåíà ïåðåíàñòðîéêè";
-  sgModel->Cells[5][0]="Òåêóùèé çàïàñ";
-  sgModel->Cells[6][0]="Øòðàô";
-  sgModel->Cells[7][0]="Öåíà ïîñòàâêè";
-  sgModel->Cells[8][0]="Ïðèáûëü";
+  sgModel->Cells[0][0]="ÐŸÐ»Ð°Ð½";
+  sgModel->Cells[1][0]="Ð ÐµÐ°Ð»ÑŒÐ½Ð¾";
+  sgModel->Cells[2][0]="ÐŸÐ¾Ñ‚Ñ€ÐµÐ±Ð½Ð¾ÑÑ‚ÑŒ";
+  sgModel->Cells[3][0]="Ð¦ÐµÐ½Ð° Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ñ";
+  sgModel->Cells[4][0]="Ð¦ÐµÐ½Ð° Ð¿ÐµÑ€ÐµÐ½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸";
+  sgModel->Cells[5][0]="Ð¢ÐµÐºÑƒÑ‰Ð¸Ð¹ Ð·Ð°Ð¿Ð°Ñ";
+  sgModel->Cells[6][0]="Ð¨Ñ‚Ñ€Ð°Ñ„";
+  sgModel->Cells[7][0]="Ð¦ÐµÐ½Ð° Ð¿Ð¾ÑÑ‚Ð°Ð²ÐºÐ¸";
+  sgModel->Cells[8][0]="ÐŸÑ€Ð¸Ð±Ñ‹Ð»ÑŒ";
   lModel=new TLabel(fMain);
   lModel->Parent=tsModel;
   lModel->Align=alBottom;
   fTemp=fEfficient (eV->Text.ToIntDef(10), eA->Text.ToIntDef(7), eB->Text.ToIntDef(2), eZ->Text.ToIntDef(1), ePeriod->Text.ToIntDef(240), sgModel, cbDay->Checked, cbMonth->Checked, cbYear->Checked);
-  lModel->Caption="Îòíîñèòåëüíûé êîýôôèöèåíò ýôôåêòèâíîñòè: "+AnsiString(100*fTemp)+" %";
+  lModel->Caption="ÐžÑ‚Ð½Ð¾ÑÐ¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¹ ÐºÐ¾ÑÑ„Ñ„Ð¸Ñ†Ð¸ÐµÐ½Ñ‚ ÑÑ„Ñ„ÐµÐºÑ‚Ð¸Ð²Ð½Ð¾ÑÑ‚Ð¸: "+AnsiString(100*fTemp)+" %";
   fCoeff=fCoeff+fTemp;
  }
- lAverage->Caption="Ñðåäíèé îòíîñèòåëüíûé êîýôôèöèåíò ýôôåêòèâíîñòè: "+AnsiString(100*fCoeff/eHowmanymodels->Text.ToIntDef(3))+" %";
+ lAverage->Caption="Ð¡Ñ€ÐµÐ´Ð½Ð¸Ð¹ Ð¾Ñ‚Ð½Ð¾ÑÐ¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¹ ÐºÐ¾ÑÑ„Ñ„Ð¸Ñ†Ð¸ÐµÐ½Ñ‚ ÑÑ„Ñ„ÐµÐºÑ‚Ð¸Ð²Ð½Ð¾ÑÑ‚Ð¸: "+AnsiString(100*fCoeff/eHowmanymodels->Text.ToIntDef(3))+" %";
 }
 //---------------------------------------------------------------------------
 

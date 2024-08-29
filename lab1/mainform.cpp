@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------
+ï»¿//---------------------------------------------------------------------------
 
 #include <math.h>
 #include <vcl.h>
@@ -24,8 +24,8 @@ void Stoppoints (int iMaxpoints, int iStoppoints, int iCount,  TStringGrid *sgCu
  {
   sgResult->Cells[0][i]=i;
  }
- sgResult->Cells[0][iCount+1]="ÌÎ";
- sgResult->Cells[0][iCount+2]="Äèñï.";
+ sgResult->Cells[0][iCount+1]="ÐœÐž";
+ sgResult->Cells[0][iCount+2]="Ð”Ð¸ÑÐ¿.";
 }
 //---------------------------------------------------------------------------
 void MonteCarlo (float fCX, float fCY, float fR, int iCount, int iMaxpoints, int iPrecision, TStringGrid *sgCurrentpoints, TStringGrid *sgResult)
@@ -81,7 +81,7 @@ __fastcall TfMain::TfMain(TComponent* Owner)
 void __fastcall TfMain::bCalculateClick(TObject *Sender)
 {
  MonteCarlo (eCirclex->Text.ToDouble(), eCircley->Text.ToDouble(), eRadius->Text.ToDouble(), eCount->Text.ToIntDef(0), eMaxpoints->Text.ToIntDef(0), ePrecision->Text.ToIntDef(1), sgCurrentpoints, sgResult);
- lReal->Caption="Ïëîùàäü êðóãà: "+FloatToStr(M_PI*powl(eRadius->Text.ToDouble(),2));
+ lReal->Caption="ÐŸÐ»Ð¾Ñ‰Ð°Ð´ÑŒ ÐºÑ€ÑƒÐ³Ð°: "+FloatToStr(M_PI*powl(eRadius->Text.ToDouble(),2));
 }
 //---------------------------------------------------------------------------
 

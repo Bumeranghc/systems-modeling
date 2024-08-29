@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------
+п»ї//---------------------------------------------------------------------------
 
 #include <vcl.h>
 #pragma hdrstop
@@ -57,25 +57,25 @@ float fPearson[30][6]={
 float fAlpha[6]={0.01, 0.025, 0.05, 0.95, 0.975, 0.99};
 bool Pearson(float fAlph, int iIntervals, float *fP, TMemo *mStat)
 {
- mStat->Lines->Add("Оценка получившегося распределения по критерию Хи квадрат:");
+ mStat->Lines->Add("РћС†РµРЅРєР° РїРѕР»СѓС‡РёРІС€РµРіРѕСЃСЏ СЂР°СЃРїСЂРµРґРµР»РµРЅРёСЏ РїРѕ РєСЂРёС‚РµСЂРёСЋ РҐРё РєРІР°РґСЂР°С‚:");
  int s=iIntervals-3, i=0, iN=0;
- mStat->Lines->Add("Число степеней свободы - "+IntToStr(s));
- mStat->Lines->Add("Степень значимости альфа - "+FloatToStrF(fAlph, ffFixed, 3, 3));
+ mStat->Lines->Add("Р§РёСЃР»Рѕ СЃС‚РµРїРµРЅРµР№ СЃРІРѕР±РѕРґС‹ - "+IntToStr(s));
+ mStat->Lines->Add("РЎС‚РµРїРµРЅСЊ Р·РЅР°С‡РёРјРѕСЃС‚Рё Р°Р»СЊС„Р° - "+FloatToStrF(fAlph, ffFixed, 3, 3));
  for (i=0; i<iIntervals; i++) iN=iN+fP[i];
  float fNaverage=(float)iN/iIntervals, fHi=0;
- mStat->Lines->Add("Средняя частота - "+FloatToStrF(fNaverage, ffFixed, 5, 5));
+ mStat->Lines->Add("РЎСЂРµРґРЅСЏСЏ С‡Р°СЃС‚РѕС‚Р° - "+FloatToStrF(fNaverage, ffFixed, 5, 5));
  bool bValid=false;
  for (i=0; i<iIntervals; i++)
  {
   fHi=fHi+powl((fP[i]-fNaverage),2)/fNaverage;
  }
- mStat->Lines->Add("Эмпирическое Хи квадрат - "+FloatToStrF(fHi, ffFixed, 5, 5));
- if (fAlph<=0.991&&fAlph>0.976) mStat->Lines->Add("Табличное Хи квадрат - "+FloatToStrF(fPearson[s-1][5], ffFixed, 5, 5));
- if (fAlph<=0.976&&fAlph>0.951) mStat->Lines->Add("Табличное Хи квадрат - "+FloatToStrF(fPearson[s-1][4], ffFixed, 5, 5));
- if (fAlph<=0.951&&fAlph>0.051) mStat->Lines->Add("Табличное Хи квадрат - "+FloatToStrF(fPearson[s-1][3], ffFixed, 5, 5));
- if (fAlph<=0.051&&fAlph>0.026) mStat->Lines->Add("Табличное Хи квадрат - "+FloatToStrF(fPearson[s-1][2], ffFixed, 5, 5));
- if (fAlph<=0.026&&fAlph>0.011) mStat->Lines->Add("Табличное Хи квадрат - "+FloatToStrF(fPearson[s-1][1], ffFixed, 5, 5));
- if (fAlph<=0.011&&fAlph>0) mStat->Lines->Add("Табличное Хи квадрат - "+FloatToStrF(fPearson[s-1][0], ffFixed, 5, 5));
+ mStat->Lines->Add("Р­РјРїРёСЂРёС‡РµСЃРєРѕРµ РҐРё РєРІР°РґСЂР°С‚ - "+FloatToStrF(fHi, ffFixed, 5, 5));
+ if (fAlph<=0.991&&fAlph>0.976) mStat->Lines->Add("РўР°Р±Р»РёС‡РЅРѕРµ РҐРё РєРІР°РґСЂР°С‚ - "+FloatToStrF(fPearson[s-1][5], ffFixed, 5, 5));
+ if (fAlph<=0.976&&fAlph>0.951) mStat->Lines->Add("РўР°Р±Р»РёС‡РЅРѕРµ РҐРё РєРІР°РґСЂР°С‚ - "+FloatToStrF(fPearson[s-1][4], ffFixed, 5, 5));
+ if (fAlph<=0.951&&fAlph>0.051) mStat->Lines->Add("РўР°Р±Р»РёС‡РЅРѕРµ РҐРё РєРІР°РґСЂР°С‚ - "+FloatToStrF(fPearson[s-1][3], ffFixed, 5, 5));
+ if (fAlph<=0.051&&fAlph>0.026) mStat->Lines->Add("РўР°Р±Р»РёС‡РЅРѕРµ РҐРё РєРІР°РґСЂР°С‚ - "+FloatToStrF(fPearson[s-1][2], ffFixed, 5, 5));
+ if (fAlph<=0.026&&fAlph>0.011) mStat->Lines->Add("РўР°Р±Р»РёС‡РЅРѕРµ РҐРё РєРІР°РґСЂР°С‚ - "+FloatToStrF(fPearson[s-1][1], ffFixed, 5, 5));
+ if (fAlph<=0.011&&fAlph>0) mStat->Lines->Add("РўР°Р±Р»РёС‡РЅРѕРµ РҐРё РєРІР°РґСЂР°С‚ - "+FloatToStrF(fPearson[s-1][0], ffFixed, 5, 5));
 
  if (fAlph<=0.991&&fHi<fPearson[s-1][5]) bValid=true;
  if (fAlph<=0.976&&fHi<fPearson[s-1][4]) bValid=true;
@@ -84,8 +84,8 @@ bool Pearson(float fAlph, int iIntervals, float *fP, TMemo *mStat)
  if (fAlph<=0.026&&fHi<fPearson[s-1][1]) bValid=true;
  if (fAlph<=0.011&&fHi<fPearson[s-1][0]) bValid=true;
 
- if (bValid==true) mStat->Lines->Add("Гипотеза о том, что распределение равномерно, верна.");
- else mStat->Lines->Add("Гипотеза о том, что распределение равномерно, НЕ верна.");
+ if (bValid==true) mStat->Lines->Add("Р“РёРїРѕС‚РµР·Р° Рѕ С‚РѕРј, С‡С‚Рѕ СЂР°СЃРїСЂРµРґРµР»РµРЅРёРµ СЂР°РІРЅРѕРјРµСЂРЅРѕ, РІРµСЂРЅР°.");
+ else mStat->Lines->Add("Р“РёРїРѕС‚РµР·Р° Рѕ С‚РѕРј, С‡С‚Рѕ СЂР°СЃРїСЂРµРґРµР»РµРЅРёРµ СЂР°РІРЅРѕРјРµСЂРЅРѕ, РќР• РІРµСЂРЅР°.");
  return bValid;
 }
 //---------------------------------------------------------------------------
@@ -181,7 +181,7 @@ void __fastcall TfMain::bGenerateClick(TObject *Sender)
   Series3->AddXY(fx, F(fx, eA->Text.ToDouble(), eB->Text.ToDouble()));
  }
  Pearson(cbAlpha->Text.ToDouble(), eIntervals->Text.ToIntDef(10), fP, mStat);
- mStat->Lines->Add("Математическое ожидание - "+FloatToStrF(fMO, ffFixed, 3, 3));
+ mStat->Lines->Add("РњР°С‚РµРјР°С‚РёС‡РµСЃРєРѕРµ РѕР¶РёРґР°РЅРёРµ - "+FloatToStrF(fMO, ffFixed, 3, 3));
  x1=eA->Text.ToDouble();
  x2=x1+h;
  for (i=0; i<eIntervals->Text.ToIntDef(10); i++)
@@ -191,11 +191,11 @@ void __fastcall TfMain::bGenerateClick(TObject *Sender)
   x2=x2+h;
  }
  fD=fD/(eIntervals->Text.ToIntDef(10)-1);
- mStat->Lines->Add("Дисперсия - "+FloatToStrF(fD, ffFixed, 3, 3));
+ mStat->Lines->Add("Р”РёСЃРїРµСЂСЃРёСЏ - "+FloatToStrF(fD, ffFixed, 3, 3));
  }
  catch(...)
  {
-  ShowMessage("Проверьте, чтобы все поля параметров были заполнены!\nНевозможно полностью выполнить операции!");
+  ShowMessage("РџСЂРѕРІРµСЂСЊС‚Рµ, С‡С‚РѕР±С‹ РІСЃРµ РїРѕР»СЏ РїР°СЂР°РјРµС‚СЂРѕРІ Р±С‹Р»Рё Р·Р°РїРѕР»РЅРµРЅС‹!\nРќРµРІРѕР·РјРѕР¶РЅРѕ РїРѕР»РЅРѕСЃС‚СЊСЋ РІС‹РїРѕР»РЅРёС‚СЊ РѕРїРµСЂР°С†РёРё!");
  }
 }
 //---------------------------------------------------------------------------
